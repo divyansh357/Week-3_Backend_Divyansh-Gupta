@@ -1,0 +1,387 @@
+{
+  "info": {
+    "_postman_id": "44cee281-4360-4364-9851-e947eccbfcf5",
+    "name": "SaaS Backend - Week 3",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43639665",
+    "_collection_link": "https://go.postman.co/collection/43639665-44cee281-4360-4364-9851-e947eccbfcf5?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "1. Auth & Organization Module",
+      "item": [
+        {
+          "name": "Register Organization",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"org_name\": \"TechCorp Solutions\",\r\n    \"user_name\": \"Alice Admin\",\r\n    \"email\": \"alice@techcorp.com\",\r\n    \"password\": \"securepass123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/auth/register-org",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "auth",
+                "register-org"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": " {\r\n \"email\": \"alice@techcorp.com\",\r\n    \"password\": \"securepass123\"\r\n }    ",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "2. Project Module",
+      "item": [
+        {
+          "name": "Create Project (Admin Only)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3ZDNkZmUxLTlhMTAtNGI3MS05N2I0LTI3YzI4ZjM4NzUzMyIsInJvbGUiOiJvcmdfYWRtaW4iLCJvcmdfaWQiOiI0Zjg1Yzc0Yi1mZGY2LTQyOWEtYTU3OC03MjA0YzEwM2Q5NDgiLCJpYXQiOjE3Njk5OTQ3MTIsImV4cCI6MTc3MDA4MTExMn0.wq71vgC3KWW0FBM7VzJFwh1XV4o1MtimPFStWj3vGYs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"TechCorp Website\", \"description\": \"Redesign homepage\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/projects",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "projects"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Projects (Pagination)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3ZDNkZmUxLTlhMTAtNGI3MS05N2I0LTI3YzI4ZjM4NzUzMyIsInJvbGUiOiJvcmdfYWRtaW4iLCJvcmdfaWQiOiI0Zjg1Yzc0Yi1mZGY2LTQyOWEtYTU3OC03MjA0YzEwM2Q5NDgiLCJpYXQiOjE3Njk5OTU2MTYsImV4cCI6MTc3MDA4MjAxNn0.CBtj-ozq83-pG-ZG88FQq-3FU3dKvj7XmbgEqwFYQJE",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/projects",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "projects"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Project Status",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3ZDNkZmUxLTlhMTAtNGI3MS05N2I0LTI3YzI4ZjM4NzUzMyIsInJvbGUiOiJvcmdfYWRtaW4iLCJvcmdfaWQiOiI0Zjg1Yzc0Yi1mZGY2LTQyOWEtYTU3OC03MjA0YzEwM2Q5NDgiLCJpYXQiOjE3Njk5OTY3MjcsImV4cCI6MTc3MDA4MzEyN30.wj-_3EsvSk7QQempikCEwAT_1AdzsScEVggE1bIr1Mo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\" : \"completed\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/projects/0296db84-616d-465e-be1d-4eaf65163ce5",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "projects",
+                "0296db84-616d-465e-be1d-4eaf65163ce5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Project (Soft)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3ZDNkZmUxLTlhMTAtNGI3MS05N2I0LTI3YzI4ZjM4NzUzMyIsInJvbGUiOiJvcmdfYWRtaW4iLCJvcmdfaWQiOiI0Zjg1Yzc0Yi1mZGY2LTQyOWEtYTU3OC03MjA0YzEwM2Q5NDgiLCJpYXQiOjE3Njk5OTc3ODgsImV4cCI6MTc3MDA4NDE4OH0.nRyDJjYiwTLPM3f3Dt5vpXHX3O0JO7MXq0sSnWlDYwc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": " {\r\n \"email\": \"alice@techcorp.com\",\r\n    \"password\": \"securepass123\"\r\n }    "
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/projects/0296db84-616d-465e-be1d-4eaf65163ce5",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "projects",
+                "0296db84-616d-465e-be1d-4eaf65163ce5"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "3. Task Module",
+      "item": [
+        {
+          "name": "Create Task (Test Security)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkNzhhZTRhLWJjNjUtNGM0Mi1hZjkwLTBiZTU5YTU0NjNhNiIsInJvbGUiOiJvcmdfYWRtaW4iLCJvcmdfaWQiOiJiNTBiNTkyMS05NjVlLTQ4NjItOTRkYS1lMWNhNjBlMDE3M2MiLCJpYXQiOjE3NzAwMzg0NjMsImV4cCI6MTc3MDEyNDg2M30.KvJTybMwEn2GdEkHw7RVL6WJh4md_-ixn5Yy1GGjswQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Design initial schema\",\r\n    \"description\": \"Cover all aspects given by org\",\r\n    \"priority\": \"medium\",\r\n    \"project_id\": \"c64a77a1-2847-4b92-93e0-a7c4e0d0afd4\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/tasks",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "tasks"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Tasks",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3ZDNkZmUxLTlhMTAtNGI3MS05N2I0LTI3YzI4ZjM4NzUzMyIsInJvbGUiOiJvcmdfYWRtaW4iLCJvcmdfaWQiOiI0Zjg1Yzc0Yi1mZGY2LTQyOWEtYTU3OC03MjA0YzEwM2Q5NDgiLCJpYXQiOjE3NzAwMzkyODQsImV4cCI6MTc3MDEyNTY4NH0.5t1Hls9lsPcsvPuIATSgoFMYrUTx1BsENZCr5DamXpA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/tasks?projectId=c64a77a1-2847-4b92-93e0-a7c4e0d0afd4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "tasks"
+              ],
+              "query": [
+                {
+                  "key": "projectId",
+                  "value": "c64a77a1-2847-4b92-93e0-a7c4e0d0afd4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Task Status",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3ZDNkZmUxLTlhMTAtNGI3MS05N2I0LTI3YzI4ZjM4NzUzMyIsInJvbGUiOiJvcmdfYWRtaW4iLCJvcmdfaWQiOiI0Zjg1Yzc0Yi1mZGY2LTQyOWEtYTU3OC03MjA0YzEwM2Q5NDgiLCJpYXQiOjE3NzAwMzk2MDAsImV4cCI6MTc3MDEyNjAwMH0.kvCQ4jiv9b-aQsnEFDGULUw7kmbInXUlVfqzxXEvwDw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"status\": \"in_progress\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/tasks/4da8592b-8f7d-45bf-9f7d-3e727a3ddcb0",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "tasks",
+                "4da8592b-8f7d-45bf-9f7d-3e727a3ddcb0"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "4. Activity Logs",
+      "item": [
+        {
+          "name": "Get Org Activity Logs",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3ZDNkZmUxLTlhMTAtNGI3MS05N2I0LTI3YzI4ZjM4NzUzMyIsInJvbGUiOiJvcmdfYWRtaW4iLCJvcmdfaWQiOiI0Zjg1Yzc0Yi1mZGY2LTQyOWEtYTU3OC03MjA0YzEwM2Q5NDgiLCJpYXQiOjE3NzAwNTIwNjcsImV4cCI6MTc3MDEzODQ2N30.5H-aE2gDm91BlhhScfip6X69vtR4uA-7Q01_JLsuLLQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/activity-logs",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "activity-logs"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
