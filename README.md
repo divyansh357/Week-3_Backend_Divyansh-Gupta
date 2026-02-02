@@ -125,9 +125,9 @@ The API returns standard HTTP status codes:
 
 ## 📂 Deliverables
 The project deliverables, including diagrams and testing proofs, are located in the customized folders:
-- **[ER Diagram](../deliverables/er-diagram/)** - Visual representation of the database schema.
-- **[Postman Collection](../deliverables/postman/)** - Importable JSON file for API testing.
-- **[Screenshots](../deliverables/screenshots/)** - Evidence of Role-Based Access Control in action.
+- **[ER Diagram](./deliverables/er-diagram/)** - Visual representation of the database schema.
+- **[Postman Collection](./deliverables/postman/)** - Importable JSON file for API testing.
+- **[Screenshots](./deliverables/screenshots/)** - Evidence of Role-Based Access Control in action.
 
 ---
 **Developed by Divyansh Gupta** | *Week 3 Backend Evaluation*
